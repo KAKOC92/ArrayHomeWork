@@ -22,9 +22,62 @@ public class StatsServiceTest {
 
         int[] salesInMonth = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
-        int expectedSum = 15;
-        int actualSum = service.salesAmountForYear(salesInMonth);
+        int expectedAverageSum = (8 + 15 + 13 + 15 + 17 + 20 + 19 + 20 + 7 + 14 + 14 + 18) / 12 ;
+        int actualAverageSum = service.averageAmountSalePerMonth(salesInMonth);
 
-        Assertions.assertEquals(expectedSum, actualSum);
+        Assertions.assertEquals(expectedAverageSum, actualAverageSum);
     }
+
+    @Test
+    public void shouldFindMonthWithMaxSales() {
+        StatsService service = new StatsService();
+
+        int[] salesInMonth = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        int expectedMonth = 8;
+        int actualMonth = service.monthWithMaxSales(salesInMonth);
+
+        Assertions.assertEquals(expectedMonth, actualMonth);
+    }
+
+    @Test
+    public void shouldFindMonthWithMinSales() {
+        StatsService service = new StatsService();
+
+        int[] salesInMonth = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        int expectedMonth = 9;
+        int actualMonth = service.monthWithMinSales(salesInMonth);
+
+        Assertions.assertEquals(expectedMonth, actualMonth);
+
+    }
+
+    @Test
+    public void sholdFindMonthsWithWichLessAverageSales() {
+        StatsService service = new StatsService();
+
+        int[] salesInMonth = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        int expectedMonth = 5;
+        int actualMonth =  service.calcMonthsWichLessAverageSales(salesInMonth);
+
+        Assertions.assertEquals(expectedMonth, actualMonth);
+
+    }
+
+    @Test
+    public void  calcMonthsBiggerLessAverageSales() {
+        StatsService service = new StatsService();
+
+        int[] salesInMonth = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        int expectedMonth = 7;
+        int actualMonth =  service. calcMonthsBiggerLessAverageSales(salesInMonth);
+
+        Assertions.assertEquals(expectedMonth, actualMonth);
+
+    }
+
+
 }

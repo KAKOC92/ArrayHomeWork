@@ -43,7 +43,7 @@ public class StatsService {
         int avarageSum = averageAmountSalePerMonth(salesInMonth);
         int monthCounter = 0;
         for (int i = 0; i < salesInMonth.length; i++) {
-            if (salesInMonth[i] < 15) {
+            if (salesInMonth[i] < avarageSum) {
                 monthCounter++;
             }
         }
@@ -55,7 +55,7 @@ public class StatsService {
         int avarageSum = averageAmountSalePerMonth(salesInMonth);
         int monthCounter = 0;
         for (int i = 0; i < salesInMonth.length; i++) {
-            if (salesInMonth[i] >= 15) {
+            if (salesInMonth[i] >= avarageSum) {
                 monthCounter++;
             }
         }
